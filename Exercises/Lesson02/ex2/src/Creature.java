@@ -74,27 +74,146 @@
 //}
 
 //Slide 21
-public class Creature {
-    public static void main(String[] args){
-        Animal myPet = new Animal();
-        myPet.setAnimalType("mouse");
-        Animal myWildlife = new Animal();
-        myWildlife.setAnimalType("deer");
+//public class Creature {
+//    public static void main(String[] args){
+//        Animal myPet = new Animal();
+//        myPet.setAnimalType("mouse");
+//        Animal myWildlife = new Animal();
+//        myWildlife.setAnimalType("deer");
+//
+//        System.out.println("I have a pet " + myPet.getAnimalType());
+//        System.out.println("I see a " + myWildlife.getAnimalType() + " outside");
+//    }
+//
+//}
+//
+//class Animal{
+//    private String animalType;
+//
+//    public void setAnimalType(String arg){
+//        animalType = arg;
+//    }
+//
+//    public String getAnimalType(){
+//        return animalType;
+//    }
+//}
 
-        System.out.println("I have a pet " + myPet.getAnimalType());
-        System.out.println("I see a " + myWildlife.getAnimalType() + " outside");
-    }
+//slide 34
+//public class Creature {
+//    public static void main(String[] args){
+//        Animal myPet = new Animal ("mouse");
+//        Animal myWildlife = new Animal ("deer");
+//
+//        System.out.println("I have a pet " + myPet.getAnimalType());
+//        System.out.println("I see a " + myWildlife.getAnimalType() + " outside");
+//    }
+//
+//}
+//
+//class Animal{
+//    private String animalType;
+//
+//    public Animal(String givenType){
+//        animalType = givenType;
+//    }
+//    public void setAnimalType(String arg){
+//        animalType = arg;
+//    }
+//
+//    public String getAnimalType(){
+//        return animalType;
+//    }
+//}
 
-}
+//slide 35, Multiple Arguments
+//public class Creature {
+//    /**
+//     @param args Ignored command-line argument
+//     */
+//    public static void main(String[] args) {
+//        Animal myPet = new Animal("mouse");
+//        myPet.setAnimalTypeKingdom("deer", "animalia");
+//
+//        System.out.println(myPet.getAnimalType() + " is an " + myPet.getAnimalKingdom());
+//    }
+//}
+//
+//class Animal {
+//    private String animalType;
+//    private String animalKingdom;
+//
+//    public Animal(String givenType)
+//    {
+//        animalType = givenType;
+//    }
+//
+//    public String getAnimalType() {
+//        return animalType;
+//    }
+//
+//    public String getAnimalKingdom() {
+//        return animalKingdom;
+//    }
+//
+//    public void setAnimalTypeKingdom(String type, String kingdom)
+//    {
+//        animalType = type;
+//        animalKingdom = kingdom;
+//    }
+//}
 
-class Animal{
-    private String animalType;
+//Slide 36, Overloading and 'This'
+//public class Creature {
+//    /**
+//     @param args Ignored command-line argument
+//     */
+//    public static void main(String[] args) {
+//        Animal myPet = new Animal();
+//        myPet.setAnimalKingdom("animalia");
+//        System.out.println(myPet.getAnimalType() + " is an " + myPet.getAnimalKingdom());
+//
+//        myPet.setAnimalTypeKingdom("deer", "animalia");
+//        System.out.println(myPet.getAnimalType() + " is an " + myPet.getAnimalKingdom());
+//    }
+//}
 
-    public void setAnimalType(String arg){
-        animalType = arg;
-    }
+//class Animal {
+//    private String animalType;
+//    private String animalKingdom;
+//
+//    public Animal(String animalType)
+//    {
+//        this.animalType = animalType;
+//    }
+//
+//    public Animal()
+//    {
+//        this("mouse");
+//    }
+//
+//    public void setAnimalTypeKingdom(String type, String kingdom)
+//    {
+//        this.setAnimalType(type);
+//        this.setAnimalKingdom(kingdom);
+//    }
+//
+//    public void setAnimalKingdom(String kingdom)
+//    {
+//        this.animalKingdom = kingdom;
+//    }
+//
+//    public void setAnimalType(String animalType)
+//    {
+//        this.animalType = animalType;
+//    }
+//
+//    public String getAnimalType() {
+//        return animalType;
+//    }
+//
+//    public String getAnimalKingdom() {
+//        return animalKingdom;
+//    }
+//}
 
-    public String getAnimalType(){
-        return animalType;
-    }
-}
