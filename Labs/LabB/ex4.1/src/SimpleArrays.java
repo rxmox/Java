@@ -75,8 +75,8 @@ public String arrayCrop(int start, int end) {
         start = end;
         end = temp;
     }
-    StringBuilder result = new StringBuilder();
-    for (int i = start; i <= end; i++) {
+    StringBuilder result = new StringBuilder(); 
+    for (int i = start; i <= end; i++) { //Returns a String consisting of all the elements between the two indices specified, concatenated, separated by the # character
         result.append(stringArray[i]);
         if (i < end) {
             result.append("#");
@@ -113,7 +113,7 @@ public static void main(String[] args){
   SimpleArrays myArray7 = new SimpleArrays("Hi you");
   String foundResult7 = myArray7.arrayCrop(0, 6);
   System.out.println(foundResult7);
-  
+
   SimpleArrays myArray8 = new SimpleArrays("Hi you");
   String foundResult8 = myArray8.arrayCrop(3, 3);
   System.out.println(foundResult8);
