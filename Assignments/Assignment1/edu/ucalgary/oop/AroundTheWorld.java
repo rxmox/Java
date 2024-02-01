@@ -38,6 +38,8 @@ All rights reserved.
 
 public class AroundTheWorld {
     public static void main(String args[]) {
+         // Create an array of arrays of strings to represent the data.
+         // var means means that the type of data will be the same as the return type of the exampleData() method (String[][] in this case)
         var data = exampleData();
 
         // Create a new Itinerary object. Order of listings is the same
@@ -109,7 +111,7 @@ public class AroundTheWorld {
             { "2023-02-05", "2023-02-07", "Jeju", "South Korea" },
             { "2023-02-07", "2023-02-08", "Seoul", "South Korea" },
             { "2023-02-08", "2023-02-08", "Tokyo", "Japan" }, 
-            { "2023-02-08", "2023-02-15", "Osaka", "Japan" } 
+            { "2023-02-08", "2023-02-15", "Osaka", "Japan" }
         };
         return example;
     }

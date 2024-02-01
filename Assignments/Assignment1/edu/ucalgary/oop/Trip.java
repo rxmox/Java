@@ -19,6 +19,7 @@ public class Trip {
     }
 
     // Constructor
+    // array represents the details of a single trip
     public Trip(String[] array) {
         this.arrival = array[0];
         this.departure = array[1];
