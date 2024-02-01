@@ -49,7 +49,7 @@ public class AroundTheWorld {
 
         // Add a blank line before the next output - otherwise there will
         // be no newline between different sections of the output.
-        System.out.println();
+        //System.out.println();
 
         // Retrieve the array of Trip objects from Itinerary
         var array = myItinerary.getTrips();
@@ -71,24 +71,24 @@ public class AroundTheWorld {
 
         System.out.println("** Demonstrate getters and setters");
         System.out.println();
-	array[4].setDeparture("2023-01-10");
-	array[4].setArrival("2023-01-10");
-	System.out.println("--" + array[4].getArrival() + "--");
-	System.out.println("--" + array[4].getDeparture() + "--");
-	System.out.println("--" + array[4].getCity() + "--");
-	System.out.println("--" + array[4].getCountry() + "--");
+        array[4].setDeparture("2023-01-10");
+        array[4].setArrival("2023-01-10");
+        System.out.println("--" + array[4].getArrival() + "--");
+        System.out.println("--" + array[4].getDeparture() + "--");
+        System.out.println("--" + array[4].getCity() + "--");
+        System.out.println("--" + array[4].getCountry() + "--");
 
         System.out.println("** Demonstrate content of byDate");
-	var dateArray = myItinerary.byDate();
-	for (int i=0; i<dateArray.length; i++) { // i is years - 2021-2023 
-		for (int j=0; j<dateArray[i].length; j++) { // j is months, 0-11
-                        // Printing every entry in the array would give 720
-                        // lines. We only print the first entry in the
-                        // 3rd level array as an example.
-			System.out.printf("dateArray[%d][%d][%d] = %s\n", i,j,0,
-			dateArray[i][j][0]);
-		}
-	}
+        var dateArray = myItinerary.byDate();
+        for (int i=0; i<dateArray.length; i++) { // i is years - 2021-2023 
+            for (int j=0; j<dateArray[i].length; j++) { // j is months, 0-11
+                              // Printing every entry in the array would give 720
+                              // lines. We only print the first entry in the
+                              // 3rd level array as an example.
+                     System.out.printf("dateArray[%d][%d][%d] = %s\n", i,j,0,
+                     dateArray[i][j][0]);
+            }
+         }
 
     }
 
