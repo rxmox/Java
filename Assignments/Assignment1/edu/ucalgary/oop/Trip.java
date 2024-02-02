@@ -1,6 +1,12 @@
 package edu.ucalgary.oop;
 
 /*
+ * Name: Omar Ahmed
+ * UCID: 30154382
+ */
+
+
+/*
 Copyright Ann Barcomb and Emily Marasco, 2021-2023
 All rights reserved.
 */

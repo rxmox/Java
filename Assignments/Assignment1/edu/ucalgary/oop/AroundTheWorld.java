@@ -51,7 +51,7 @@ public class AroundTheWorld {
 
         // Add a blank line before the next output - otherwise there will
         // be no newline between different sections of the output.
-        //System.out.println();
+        System.out.println();
 
         // Retrieve the array of Trip objects from Itinerary
         var array = myItinerary.getTrips();

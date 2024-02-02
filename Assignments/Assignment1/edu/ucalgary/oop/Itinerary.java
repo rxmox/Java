@@ -36,41 +36,33 @@ public class Itinerary {
     }
 
     public String formatByArrival() {
-        //result will hold the formatted string
-        StringBuilder result = new StringBuilder();
-        //lastYear and lastMonth are used to keep track of current year and month
-        int lastYear = -1;
-        int lastMonth = -1;
-
-        // Assuming the trips are already in the correct order
+        StringBuilder formattedArrivals = new StringBuilder(); // Using StringBuilder for efficient string manipulation
+        int lastArrivalYear = 0; 
+        int lastArrivalMonth = 0; 
+    
         for (int i = 0; i < tripsLength; i++) {
-            Trip trip = trips[i];
-            int year = Trip.getYear(trip.getArrival());
-            int month = Trip.getMonth(trip.getArrival());
-
-            // If the year has changed, add a new line and the year
-            if (year != lastYear) {
-                if (lastYear != -1) result.append("\n");
-                result.append(year).append(" (Year)\n");
-                lastYear = year;
-                lastMonth = -1;
+            int currentYear = trips[i].getYear(trips[i].getArrival()); 
+            int currentMonth = trips[i].getMonth(trips[i].getArrival()); 
+    
+            if (currentYear != lastArrivalYear) {
+                lastArrivalYear = currentYear;
+                formattedArrivals.append(lastArrivalYear).append(" (Year)\n"); 
             }
-
-            // If the month has changed, add a new line and the month
-            if (month != lastMonth) {
-                result.append("--").append(month).append(" (Month)\n");
-                lastMonth = month;
+            if (currentMonth != lastArrivalMonth) {
+                lastArrivalMonth = currentMonth;
+                formattedArrivals.append("--").append(lastArrivalMonth).append(" (Month)\n"); 
             }
-            // Add the formatted trip details
-            result.append("----")
-                .append(fmtString("City", trip.getCity()))
-                .append(", ")
-                .append(fmtString("Country", trip.getCountry()))
-                .append(" (Place)\n");
+    
+            String destinationCity = trips[i].getCity(); 
+            String destinationCountry = trips[i].getCountry(); 
+            formattedArrivals.append("----")
+                             .append(destinationCity).append(" (City), ")
+                             .append(destinationCountry).append(" (Country) (Place)\n");
         }
-
-        return result.toString();
+    
+        return formattedArrivals.toString(); 
     }
+    
 
     // The first array holds years (2021-2023).
     // The second array holds months.
