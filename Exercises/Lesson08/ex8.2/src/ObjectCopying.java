@@ -14,6 +14,8 @@ public class ObjectCopying {
         System.out.println("Rider: " + horse1.getRider().getRiderName());
 
         CompetitionHorse horse2 = new CompetitionHorse();
+        // Creating a shallow copy of horse1
+        // Any changes made to horse2 will also affect horse1
         horse2 = horse1;
         horse2.setCompetitionHorseName("Thunder");
         horse2.setRider("Taylor", 1234, 25);

@@ -2,33 +2,39 @@ import java.util.Arrays;
 
 public class ObjectCopying {
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws CloneNotSupportedException{
 
         CompetitionHorse horse1 = new CompetitionHorse("Horse","Equidae","Chordata","Blaze");
         String[] horse1Skills = new String[]{"Jumping", "Dressage"};
         horse1.setCompetitionHorseSkills(horse1Skills);
         horse1.setRider("Alex", 4321, 30);
 
+        System.out.println("Original Horse1");
         System.out.println("Name: " + horse1.getCompetitionHorseName());
         System.out.println("Skills: " + Arrays.toString(horse1.skills));
         System.out.println("Rider: " + horse1.getRider().getRiderName());
 
-        //created another instance of the CompetitionHorse class
-        CompetitionHorse horse2 = new CompetitionHorse("Horse","Equidae","Chordata","Light");
-        String[] horse2skills = new String[]{"Running", "Stopping"};
-        horse2.setCompetitionHorseSkills(horse2skills);
-        horse2.setRider("Omar", 6969, 20);
+        CompetitionHorse horse2 = (CompetitionHorse)horse1.clone();
+        horse2.setCompetitionHorseName("Thunder");
+        horse2.setRider("Taylor", 1234, 25);
+        String [] horse2Skills = new String[]{"Racing"};
+        horse2.setCompetitionHorseSkills(horse2Skills);
 
         System.out.println();
-
+        System.out.println("Horse1");
+        System.out.println("Name: " + horse1.getCompetitionHorseName());
+        System.out.println("Skills: " + Arrays.toString(horse1.skills));
+        System.out.println("Rider: " + horse1.getRider().getRiderName());
+        System.out.println("Horse2");
         System.out.println("Name: " + horse2.getCompetitionHorseName());
         System.out.println("Skills: " + Arrays.toString(horse2.skills));
         System.out.println("Rider: " + horse2.getRider().getRiderName());
+
     }
 }
 
-
-class CompetitionHorse {
+//added cloneable interface using "Implements Cloneable"
+class CompetitionHorse implements Cloneable{
     private String animalSpecies;
     private String animalFamily;
     private String animalPhylum;
@@ -46,6 +52,14 @@ class CompetitionHorse {
         this.animalFamily = animalFamily;
         this.animalPhylum = animalPhylum;
         this.animalName = animalName;
+    }
+
+    //added the clone method
+    public Object clone() throws CloneNotSupportedException{
+
+        CompetitionHorse copy = (CompetitionHorse)super.clone();
+        copy.animalRider = (Rider)animalRider.clone();
+        return copy;
     }
 
     public void setCompetitionHorsePhylum(String animalPhylum)
@@ -103,7 +117,7 @@ class CompetitionHorse {
 
 }
 
-class Rider{
+class Rider implements Cloneable{
     private String riderName;
     private int riderRegNumber;
     private int age;
@@ -117,6 +131,10 @@ class Rider{
         this.riderName = riderName;
         this.riderRegNumber = riderRegNumber;
         this.age = age;
+    }
+
+    public Object clone() throws CloneNotSupportedException{
+        return super.clone();
     }
 
     public void setRiderName(String riderName)
