@@ -2,8 +2,7 @@ import java.util.Arrays;
 
 public class ObjectCopying {
 
-    //Added CloneNotSupportedException to main
-    public static void main(String[] args) throws CloneNotSupportedException{
+    public static void main(String[] args){
 
         CompetitionHorse horse1 = new CompetitionHorse("Horse","Equidae","Chordata","Blaze");
         String[] horse1Skills = new String[]{"Jumping", "Dressage"};
@@ -15,8 +14,8 @@ public class ObjectCopying {
         System.out.println("Skills: " + Arrays.toString(horse1.skills));
         System.out.println("Rider: " + horse1.getRider().getRiderName());
 
-        //Created a deep clone of horse 1
-        CompetitionHorse horse2 = (CompetitionHorse)horse1.clone();
+        // creates object using another object
+        CompetitionHorse horse2 = new CompetitionHorse(horse1);
         horse2.setCompetitionHorseName("Thunder");
         horse2.setRider("Taylor", 1234, 25);
         String [] horse2Skills = new String[]{"Racing"};
@@ -35,8 +34,8 @@ public class ObjectCopying {
     }
 }
 
-//added cloneable interface using "Implements Cloneable"
-class CompetitionHorse implements Cloneable{
+
+class CompetitionHorse {
     private String animalSpecies;
     private String animalFamily;
     private String animalPhylum;
@@ -56,14 +55,15 @@ class CompetitionHorse implements Cloneable{
         this.animalName = animalName;
     }
 
-    //added CompetitionHorse clone method
-    public Object clone() throws CloneNotSupportedException{
-
-        CompetitionHorse copy = (CompetitionHorse)super.clone();
-        // explicitly clones the animalRider field by calling animalRider.clone()
-        // ensures that complex rider field is also cloned
-        copy.animalRider = (Rider)animalRider.clone();
-        return copy;
+    // created copy constructor for CompetitionHorse
+    public CompetitionHorse(CompetitionHorse origCompetitionHorse){
+        this.animalSpecies = origCompetitionHorse.animalSpecies;
+        this.animalFamily = origCompetitionHorse.animalFamily;
+        this.animalPhylum = origCompetitionHorse.animalPhylum;
+        this.animalName = origCompetitionHorse.animalName;
+        this.skills = origCompetitionHorse.skills;
+        //ensures rider project is copied properly, not just referenced
+        this.animalRider = new Rider(origCompetitionHorse.animalRider);
     }
 
     public void setCompetitionHorsePhylum(String animalPhylum)
@@ -121,9 +121,7 @@ class CompetitionHorse implements Cloneable{
 
 }
 
-//added cloneable interface using "Implements Cloneable"
-// This indicates that class supports cloning
-class Rider implements Cloneable{
+class Rider{
     private String riderName;
     private int riderRegNumber;
     private int age;
@@ -139,9 +137,11 @@ class Rider implements Cloneable{
         this.age = age;
     }
 
-    //Added Rider clone method
-    public Object clone() throws CloneNotSupportedException{
-        return super.clone();
+    // Create copy constructor for Rider as well
+    public Rider(Rider inputRider){
+        this.riderName = inputRider.riderName;
+        this.riderRegNumber = inputRider.riderRegNumber;
+        this.age = inputRider.age;
     }
 
     public void setRiderName(String riderName)
