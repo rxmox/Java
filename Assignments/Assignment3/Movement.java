@@ -1,4 +1,4 @@
-//package edu.ucalgary.oop;
+package edu.ucalgary.oop;
 import java.util.regex.*;
 
 public class Movement implements FormattedOutput, Cloneable {
@@ -31,9 +31,12 @@ public class Movement implements FormattedOutput, Cloneable {
     public String getDirection() {
         return this.direction;
     }
-    
+
+    // implement the method from the FormattedOutput interface
+    // return a string in the format "Action: <action>, Direction: <direction>"
     @Override
     public String getFormatted() {
+        // Directions enum is used to convert the direction abbreviation to the full spelling
         Directions directionOutput = Directions.E;
         if (this.direction.equals("E")) {
             directionOutput = Directions.E;

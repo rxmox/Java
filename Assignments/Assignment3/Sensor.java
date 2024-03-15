@@ -1,4 +1,4 @@
-//package edu.ucalgary.oop;
+package edu.ucalgary.oop;
 import java.util.regex.*;
 
 public class Sensor implements FormattedOutput, Cloneable {
@@ -18,6 +18,7 @@ public class Sensor implements FormattedOutput, Cloneable {
         return this.sensor;
     }
 
+    // implement the method from the FormattedOutput interface 
     @Override
     public String getFormatted() {
         String output = "Sensor: " + this.sensor;

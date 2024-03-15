@@ -44,7 +44,7 @@ class Reptile extends Animal {
     }
 }
 
-
+//class I need to implement, which inherits from reptile
 class Lizard extends Reptile {
     private int tailLength;
     private int tongueLength;
@@ -61,6 +61,7 @@ class Lizard extends Reptile {
         super(age, scales);
     }
 
+    //constructor that takes in age, scales, tail and tongue
     public Lizard(String scales, int age, int tail, int tongue) {
         super(age, scales);
         this.setTailLength(tail);
@@ -83,6 +84,7 @@ class Lizard extends Reptile {
         return this.tongueLength;
     }
 
+    // method which simulates run action with print statement
     public void run() {
         System.out.println("🦎");
     }
